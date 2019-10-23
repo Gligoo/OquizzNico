@@ -12,13 +12,14 @@ class Quiz extends Model
      */
     protected $table = 'quizzes';
 
-    
+
 
     /**
      * get  the authors that writes quizzes
      */
     public function user()
     {
-        return $this->belongsTo('App\User'); /** nom dans la base de donnée (user) */
+        return $this->belongsTo('App\User', 'app_users_id'); /** nom dans la base de donnée (user) */
+                                                            /** il faut lui spécifier la clé étrangère à la main */
     }
 };
