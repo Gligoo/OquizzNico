@@ -13,12 +13,12 @@ class MainController extends Controller
     {
         $quizList = Quiz::all();  /** je récupère tous les quizzs */
 
-        foreach ($quizList as $quiz) {
-            dump($quiz->user->firstname);
-        }
+        // foreach ($quizList as $quiz) {
+        // dump($quiz->user->firstname);
+        // }
 
-        dump($quizList);
-        exit;
+        // dump($quizList);
+        // exit;
 
         return view ('home', [
             'quizList' => $quizList
