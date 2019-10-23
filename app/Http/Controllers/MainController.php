@@ -11,10 +11,13 @@ class MainController extends Controller
      */
     public function homeAction()
     {
-        $quizlist = Quiz::all();  /** je récupère tous les quizzs */
+        $quizList = Quiz::all();  /** je récupère tous les quizzs */
+
+        dump($quizList);
+        exit;
 
         return view ('home', [
-            'quizList' => $quizlist
+            'quizList' => $quizList
         ]);
     }
 }
