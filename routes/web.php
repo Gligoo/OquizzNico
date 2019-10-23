@@ -16,7 +16,17 @@ $router->get('/', [
       'uses' => 'MainController@homeAction'
 ]);
 
+$router->get('/quiz/{id}', [
+    'as' => 'quiz',
+    'uses' => 'QuizController@quizAction'
+]);
+
 $router->get('/signup', [
     'as' => 'signup',
     'uses' => 'UserController@signupAction'
+]);
+
+$router->get('/signin', [
+    'as' => 'signin',
+    'uses' => 'UserController@signinAction'
 ]);

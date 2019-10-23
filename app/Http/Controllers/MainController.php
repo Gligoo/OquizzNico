@@ -9,7 +9,7 @@ class MainController extends Controller
     /**
      * HomePage route
      */
-    public function homeAction()
+    public function homeAction() // les paramètres d'url sont envoyés automatiquement à la méthode de controller si on reprend le mm nom
     {
         $quizList = Quiz::all();  /** je récupère tous les quizzs */
 
