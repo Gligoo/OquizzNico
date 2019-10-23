@@ -15,3 +15,8 @@ $router->get('/', [
       'as' => 'home',
       'uses' => 'MainController@homeAction'
 ]);
+
+$router->get('/signup', [
+    'as' => 'signup',
+    'uses' => 'UserController@signupAction'
+]);
