@@ -11,6 +11,10 @@
 |
 */
 
+$router->get('/', function () use ($router) {
+    return $router->app->version();
+});
+
 $router->get('/', [
       'as' => 'home',
       'uses' => 'MainController@homeAction'
@@ -21,12 +25,48 @@ $router->get('/quiz/{id}', [
     'uses' => 'QuizController@quizAction'
 ]);
 
+$router->post('/quiz/{id}', [
+    'as'   => 'quiz_post',
+    'uses' => 'QuizController@quizPostAction'
+]);
+
+$router->get('/tags', [
+    'as'   => 'tags',
+    'uses' => 'TagController@tagsAction'
+]);
+
+$router->get('/tags/{tagId}/quiz', [
+    'as'   => 'tag_quizzes',
+    'uses' => 'TagController@quizzesAction'
+]);
+
 $router->get('/signup', [
     'as' => 'signup',
     'uses' => 'UserController@signupAction'
 ]);
 
+$router->post('/signup', [
+    'as'   => 'signup_post',
+    'uses' => 'UserController@signupPostAction'
+]);
+
+
 $router->get('/signin', [
     'as' => 'signin',
     'uses' => 'UserController@signinAction'
+]);
+
+$router->post('/signin', [
+    'as'   => 'signin_post',
+    'uses' => 'UserController@signinPostAction'
+]);
+
+$router->get('/account', [
+    'as'   => 'account',
+    'uses' => 'UserController@profileAction'
+]);
+
+$router->post('/signout', [
+    'as'   => 'signout',
+    'uses' => 'UserController@signoutAction'
 ]);

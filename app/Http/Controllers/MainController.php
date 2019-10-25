@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Quiz;
 
 class MainController extends Controller

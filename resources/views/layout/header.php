@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
         <!-- Really beautiful CSS -->
-        <link href="./css/style.css"  rel="stylesheet">
+        <link href="<?= url('/css/style.css'); ?>"  rel="stylesheet">
 
         <title>O'Quiz</title>
     </head>
@@ -18,26 +18,50 @@
             <nav>
 
                 <ul>
-
-                    <a href="<?= route('home'); ?> ">
-                    <h1>O'Quiz</h1>
-                    </a>
-
+                    <li>
+                        <a href="<?= route('home'); ?>">
+                        <h1>O'Quiz</h1>
+                        </a>
+                    </li>
                 </ul>
 
-                <ul>
 
-                        <a href=<?= route('home'); ?>>
+                    <div>
+                        <p>Bonjour</p>
+                        <form method="post" action="<?= route('signout'); ?>">
+                            <button type="submit" class="btn btn-primary">Se déconnecter</button>
+                        </form>
+                    </div>
+
+
+                <ul>
+                    <li>
+                        <a href="<?= route('home'); ?>">
+                            <i></i>
                             Accueil
                         </a>
+                    </li>
 
-                        <a href="#">
-                            Mon-compte
+                    <li>
+                        <a href="<?= route('account'); ?>">
+                            <i></i>
+                            Mon compte
                         </a>
+                    </li>
 
+                    <li>
                         <a href="#">
+                            <i></i>
                             Déconnexion
                         </a>
+                    </li>
+
+                    <li>
+                        <a href="<?= route('signin'); ?>">Se connecter</a>
+                    </li>
+                    <li>
+                        <a href="<?= route('signup'); ?>">S'inscrire</a>
+                    </li>
 
                 </ul>
             </nav>

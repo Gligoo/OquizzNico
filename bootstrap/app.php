@@ -6,6 +6,8 @@ require_once __DIR__.'/../vendor/autoload.php';
     dirname(__DIR__)
 ))->bootstrap();
 
+session_start();
+
 /*
 |--------------------------------------------------------------------------
 | Create The Application
