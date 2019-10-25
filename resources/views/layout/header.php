@@ -50,9 +50,9 @@
                     </li>
 
                     <li>
-                        <a href="#">
+                        <a href="<?= route('tags'); ?>">
                             <i></i>
-                            Déconnexion
+                            Sujets
                         </a>
                     </li>
 

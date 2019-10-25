@@ -166,4 +166,5 @@ class UserController extends Controller
         }
         return redirect()->route('home');
     }
+
 }
