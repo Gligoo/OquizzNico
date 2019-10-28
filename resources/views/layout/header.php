@@ -24,16 +24,14 @@
                         </a>
                     </li>
                 </ul>
-
+                <?php if (\App\Utils\UserSession::isConnected()): ?>
 
                     <div>
-                        <p>Bonjour</p>
+                        <p>Bonjour <?=\App\Utils\UserSession::getUser()->firstname ?><p>
                         <form method="post" action="<?= route('signout'); ?>">
                             <button type="submit" class="btn btn-primary">Se déconnecter</button>
                         </form>
                     </div>
-
-
                 <ul>
                     <li>
                         <a href="<?= route('home'); ?>">
@@ -55,6 +53,7 @@
                             Sujets
                         </a>
                     </li>
+                    <?php else: ?>
 
                     <li>
                         <a href="<?= route('signin'); ?>">Se connecter</a>
@@ -62,6 +61,7 @@
                     <li>
                         <a href="<?= route('signup'); ?>">S'inscrire</a>
                     </li>
+                    <?php endif ?>
 
                 </ul>
             </nav>

@@ -15,45 +15,43 @@ echo view('layout.header');
     <h4><?= $quiz->description; ?></h4>
 </div>
 
-<div>
-    <p>by <?= $quiz->user->getFullName(); ?></p>
-</div>
+    <div> Ecrit par <?= $quiz->user->firstname; ?></div>
 
-<form action="<?= route('quiz_post', ['id' => $quiz->id]); ?>" method="post">
-    <div class="row">
-        <?php foreach ($quiz->questions as $question) : ?>
-            <div class="col-4 question">
+    <form action="<?= route('quiz_post', ['id' => $quiz->id]); ?>" method="post">
+        <div class="row">
+            <?php foreach ($quiz->questions as $question) : ?>
+                <div class="col-4 question">
 
-                <span
-                    class="level level--<?= $levelClasses[$question->level->id]; ?>"
-                ><?= $question->level->name; ?></span>
+                    <span
+                        class="level level--<?= $levelClasses[$question->level->id]; ?>"
+                    ><?= $question->level->name; ?></span>
 
-                <div class="question__question"><?= $question->question; ?></div>
+                    <div class="question__question"><?= $question->question; ?></div>
 
-                <div class="question__choices">
-                    <?php
-                    foreach ($question->answers->shuffle() as $answer) :
-                        $answerInputId = 'questions' . $question->id . 'Answer' . $answer->id;
-                    ?>
-                        <div>
-                            <input
-                                type="radio"*
-                                name="answers[<?= $question->id; ?>]"
-                                id="<?= $answerInputId; ?>"
-                                value="<?= $answer->id ?>"
-                            >
-                            <label
-                                for="<?= $answerInputId; ?>"
-                            ><?= $answer->description; ?></label>
-                        </div>
-                    <?php endforeach; ?>
+                    <div class="question__choices">
+                        <?php
+                        foreach ($question->answers->shuffle() as $answer) :
+                            $answerInputId = 'questions' . $question->id . 'Answer' . $answer->id;
+                        ?>
+                            <div>
+                                <input
+                                    type="radio"*
+                                    name="answers[<?= $question->id; ?>]"
+                                    id="<?= $answerInputId; ?>"
+                                    value="<?= $answer->id ?>"
+                                >
+                                <label
+                                    for="<?= $answerInputId; ?>"
+                                ><?= $answer->description; ?></label>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
-            </div>
-        <?php endforeach; ?>
-    </div>
-    <div>
-        <input class="btn" type="submit" value="OK"/>
-    </div>
-</form>
+            <?php endforeach; ?>
+        </div>
+        <div>
+            <input class="btn" type="submit" value="OK"/>
+        </div>
+    </form>
 
 <?= view('layout.footer'); ?>
